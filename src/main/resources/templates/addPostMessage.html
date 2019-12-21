@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Show message</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h1>Post added:</h1>
+
+<p th:text="'Title: ' + ${post.title}"></p>
+<p th:text="'Body: ' + ${post.body}"></p>
+<p th:text="'Summary: ' + ${post.summary}"></p>
+<a href="/addPost">Add another post</a>
+
+</body>
+</html>
