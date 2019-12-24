@@ -6,20 +6,20 @@
 </head>
 <body>
 
-<h1>Add User</h1>
+<h1>Add Post</h1>
 
 <form action="#" th:action="@{/addPost}" th:object="${post}" method="post">
     <p>
-        Title: <input type="text" th:field="*{title}">
+        Title: <input type="text" th:field="*{title}"><label th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title </label>
     </p>
     <p>
-        Body: <input type="text" th:field="*{body}">
+        Body: <input type="text" th:field="*{body}"><label th:if="${#fields.hasErrors('body')}" th:errors="*{body}">Title </label>
     </p>
     <p>
-        Summary: <input type="text" th:field="*{summary}">
+        Summary: <input type="text" th:field="*{summary}"><label th:if="${#fields.hasErrors('summary')}" th:errors="*{summary}">Title </label>
     </p>
     <p>
-        <input type="submit" value="Submit"/> <input type="reset" value="Reset">
+        <input type="submit" value="Submit"/>
     </p>
 </form>
 

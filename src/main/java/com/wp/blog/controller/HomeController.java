@@ -16,7 +16,7 @@ public class HomeController {
     @GetMapping("/")
     public String home(Map<String, Object> model) {
         model.put("now", LocalDate.now());
-        model.put("welcome", this.homeWelcome);
+        model.put("welcome ", this.homeWelcome);
         return "home";
     }
 }

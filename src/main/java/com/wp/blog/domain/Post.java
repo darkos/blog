@@ -19,10 +19,10 @@ public class Post {
     @NotEmpty
     private String title;
 
-    @NotNull
+    @NotEmpty
     private String body;
 
-    @NotNull
+    @NotEmpty
     private String summary;
 
     public UUID getId() {
