@@ -3,6 +3,7 @@ package com.wp.blog.domain;
 import com.sun.istack.NotNull;
 
 import javax.persistence.Entity;
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -20,6 +21,7 @@ public class Post {
     private String title;
 
     @NotEmpty
+    @Column(columnDefinition="LONGTEXT")
     private String body;
 
     @NotEmpty
