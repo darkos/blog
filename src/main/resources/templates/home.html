@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Home page</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div th:replace="/fragments/header :: header-css"/>
 </head>
 <body>
 
+<div th:replace="/fragments/header :: header"/>
+<div class="container">
 <p th:text="'Date: ' + ${now}"></p>
 <p th:text="'Message: ' + ${welcome}"></p>
+</div>
+<div th:replace="/fragments/footer :: footer"/>
 
 </body>
 </html>

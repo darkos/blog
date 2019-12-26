@@ -14,6 +14,13 @@ public class HomeController {
     private String homeWelcome = "WebPlease Blog";
 
     @GetMapping("/")
+    public String siteRoot(Map<String, Object> model) {
+        model.put("now", LocalDate.now());
+        model.put("welcome ", this.homeWelcome);
+        return "home";
+    }
+
+    @GetMapping("/home")
     public String home(Map<String, Object> model) {
         model.put("now", LocalDate.now());
         model.put("welcome ", this.homeWelcome);

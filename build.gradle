@@ -21,6 +21,12 @@ dependencies {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
     implementation 'junit:junit:4.12'
+	// https://mvnrepository.com/artifact/org.webjars/bootstrap
+	implementation group: 'org.webjars', name: 'bootstrap', version: '3.3.7'
+	// https://mvnrepository.com/artifact/org.webjars/jquery
+	implementation group: 'org.webjars', name: 'jquery', version: '2.1.4'
+
+
 }
 
 test {

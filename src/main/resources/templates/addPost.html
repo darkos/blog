@@ -1,27 +1,51 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Add user</title>
-    <meta charset="UTF-8">
+    <div th:replace="/fragments/header :: header-css"/>
 </head>
 <body>
 
-<h1>Add Post</h1>
+<div th:replace="/fragments/header :: header"/>
+<div class="container">
+<!--New Post Form-->
+<div class="row" style="margin-top:20px">
+    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+        <form autocomplete="off" action="#" th:action="@{/addPost}"
+              th:object="${post}" method="post" class="form-horizontal"
+              role="form">
 
-<form action="#" th:action="@{/addPost}" th:object="${post}" method="post">
-    <p>
-        Title: <input type="text" th:field="*{title}"><label th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title </label>
-    </p>
-    <p>
-        Body: <input type="text" th:field="*{body}"><label th:if="${#fields.hasErrors('body')}" th:errors="*{body}">Title </label>
-    </p>
-    <p>
-        Summary: <input type="text" th:field="*{summary}"><label th:if="${#fields.hasErrors('summary')}" th:errors="*{summary}">Title </label>
-    </p>
-    <p>
-        <input type="submit" value="Submit"/>
-    </p>
-</form>
+            <h2 class="text-center">Write new post</h2>
+
+            <div class="form-group">
+                <label th:if="${#fields.hasErrors('title')}" th:errors="*{title}"
+                       class="alert alert-danger"></label>
+                <input type="text" th:field="*{title}" placeholder="Title"
+                       class="form-control input-lg"/>
+            </div>
+
+            <div class="form-group">
+                <label th:if="${#fields.hasErrors('body')}" th:errors="*{body}"
+                       class="alert alert-danger"></label>
+                <textarea th:field="*{body}" placeholder="Body"
+                          class="form-control input-lg"/>
+            </div>
+
+            <div class="form-group">
+                <label th:if="${#fields.hasErrors('summary')}" th:errors="*{summary}"
+                       class="alert alert-danger"></label>
+                <textarea th:field="*{summary}" placeholder="Summary"
+                          class="form-control input-lg"/>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary btn-block" value="Save"/>
+            </div>
+
+        </form>
+    </div>
+</div>
+</div>
+<div th:replace="/fragments/footer :: footer"/>
 
 </body>
 </html>
