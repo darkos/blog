@@ -9,6 +9,9 @@
 <div class="container">
     <h1 th:text="${post.title}">Title</h1>
     <div th:remove="tag" th:utext="${post.body}"></div>
+
+    <h3><a th:href="@{'/editPost/' + ${post.id}}">Edit this post</a></h3>
+
 </div>
 <div th:replace="/fragments/footer :: footer"/>
 

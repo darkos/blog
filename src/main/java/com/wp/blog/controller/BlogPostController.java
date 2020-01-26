@@ -37,7 +37,6 @@ public class BlogPostController {
             post = postService.save(post);
             return "addPostMessage";
         }
-//        return "addPostMessage";
     }
 
     @GetMapping("/post/{id}")
@@ -51,6 +50,30 @@ public class BlogPostController {
 
         } else {
             return "/error";
+        }
+    }
+
+    @GetMapping("/editPost/{id}")
+    public String editPost(@PathVariable UUID id, Map<String, Object> model) {
+        Optional<Post> optionalPost = postService.findForId(id);
+        if (optionalPost.isPresent()) {
+            Post post = optionalPost.get();
+
+            model.put("post", post);
+            return "/editPost";
+
+        } else {
+            return "/error";
+        }
+    }
+
+    @PostMapping("/updatePost")
+    public String processUpdatePostForm(@Valid Post post, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "/addPost";
+        } else {
+            postService.updatePost(post);
+            return "redirect:/post/" + post.getId();
         }
     }
 

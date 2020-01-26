@@ -11,5 +11,5 @@ public interface PostService {
     Post save(Post post);
     Optional<Post> findForId(UUID id);
     List<Post> findAll();
-
+    void updatePost(Post post);
 }

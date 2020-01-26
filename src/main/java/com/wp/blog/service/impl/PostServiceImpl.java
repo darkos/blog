@@ -34,4 +34,16 @@ public class PostServiceImpl implements PostService {
     public List<Post> findAll() {
         return postRepository.findAll();
     }
+
+    @Override
+    public void updatePost(Post post) {
+        Optional<Post> optionalPostToUpdate = postRepository.findById(post.getId());
+        Post  postToUpdate = optionalPostToUpdate.get();
+        postToUpdate.setTitle(post.getTitle());
+        postToUpdate.setBody(post.getBody());
+        postToUpdate.setSummary(post.getSummary());
+        postRepository.save(postToUpdate);
+        postRepository.flush();
+//        postRepository.save(post.getId(), post.getTitle(), post.getBody(), post.getSummary());
+    }
 }
