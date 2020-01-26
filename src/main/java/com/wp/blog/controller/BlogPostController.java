@@ -6,9 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.Map;
+import java.util.Optional;
+import java.util.UUID;
 
 @Controller
 public class BlogPostController {
@@ -34,6 +38,20 @@ public class BlogPostController {
             return "addPostMessage";
         }
 //        return "addPostMessage";
+    }
+
+    @GetMapping("/post/{id}")
+    public String getPostWithId(@PathVariable UUID id, Map<String, Object> model) {
+        Optional<Post> optionalPost = postService.findForId(id);
+        if (optionalPost.isPresent()) {
+            Post post = optionalPost.get();
+
+            model.put("post", post);
+            return "/post";
+
+        } else {
+            return "/error";
+        }
     }
 
 }

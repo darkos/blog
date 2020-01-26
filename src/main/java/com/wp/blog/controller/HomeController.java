@@ -23,16 +23,13 @@ public class HomeController {
 
     @GetMapping("/")
     public String siteRoot(Map<String, Object> model) {
-        model.put("now", LocalDate.now());
-        model.put("welcome ", this.homeWelcome);
-        return "home";
+        return "redirect:/home";
     }
 
     @GetMapping("/home")
     public String home(Map<String, Object> model) {
-//        model.put("now", LocalDate.now());
-//        model.put("welcome ", this.homeWelcome);
     	List<Post> posts = postRepo.findAll();
+        model.put("posts", posts);
         return "home";
     }
 }

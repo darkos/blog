@@ -6,6 +6,9 @@ import com.wp.blog.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+import java.util.UUID;
+
 @Service
 public class PostServiceImpl implements PostService {
 
@@ -19,5 +22,10 @@ public class PostServiceImpl implements PostService {
     @Override
     public Post save(Post post) {
         return postRepository.saveAndFlush(post);
+    }
+
+    @Override
+    public Optional<Post> findForId(UUID id) {
+        return postRepository.findById(id);
     }
 }
