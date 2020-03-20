@@ -19,9 +19,6 @@ public class HomeControllerTest {
     @Autowired
     private MockMvc mockMvc;
 
-    @Autowired
-    private ObjectMapper objectMapper;
-
     @Test
     void whenValidInput_thenReturns200() throws Exception {
         this.mockMvc.perform(get("/")

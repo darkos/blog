@@ -16,7 +16,7 @@ import com.wp.blog.repository.PostRepository;
 public class HomeController {
 
     @Value("${home.welcome}")
-    private String homeWelcome = "WebPlease Blog";
+    private final String homeWelcome = "WebPlease Blog";
     
     @Autowired
     private PostRepository postRepo;
