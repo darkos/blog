@@ -32,7 +32,7 @@ public class BlogPostController {
     @PostMapping("/addPost")
     public String processAddBlogPostForm(@Valid Post post, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "/addPost";
+            return "addPost";
         } else {
             post = postService.save(post);
             return "addPostMessage";
@@ -46,10 +46,10 @@ public class BlogPostController {
             Post post = optionalPost.get();
 
             model.put("post", post);
-            return "/post";
+            return "post";
 
         } else {
-            return "/error";
+            return "error";
         }
     }
 
@@ -60,20 +60,20 @@ public class BlogPostController {
             Post post = optionalPost.get();
 
             model.put("post", post);
-            return "/editPost";
+            return "editPost";
 
         } else {
-            return "/error";
+            return "error";
         }
     }
 
     @PostMapping("/updatePost")
     public String processUpdatePostForm(@Valid Post post, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "/addPost";
+            return "addPost";
         } else {
             postService.updatePost(post);
-            return "redirect:/post/" + post.getId();
+            return "redirect:post/" + post.getId();
         }
     }
 

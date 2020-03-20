@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <div th:replace="/fragments/header :: header-css"/>
+    <div th:replace="fragments/header :: header-css"/>
 </head>
 <body>
 
-<div th:replace="/fragments/header :: header"/>
+<div th:replace="fragments/header :: header"/>
 <div class="container">
     <h1 th:text="${post.title}">Title</h1>
     <div th:remove="tag" th:utext="${post.body}"></div>
@@ -13,7 +13,7 @@
     <h3><a th:href="@{'/editPost/' + ${post.id}}">Edit this post</a></h3>
 
 </div>
-<div th:replace="/fragments/footer :: footer"/>
+<div th:replace="fragments/footer :: footer"/>
 
 </body>
 </html>

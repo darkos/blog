@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <div th:replace="/fragments/header :: header-css"/>
+    <div th:replace="fragments/header :: header-css"/>
 </head>
 <body>
 
-<div th:replace="/fragments/header :: header"/>
+<div th:replace="fragments/header :: header"/>
 <div class="container">
 <!--New Post Form-->
 <div class="row" style="margin-top:20px">
@@ -17,9 +17,9 @@
             <h2 class="text-center">Editing post</h2>
 
             <div class="form-group">
-                <label th:if="${#fields.hasErrors('id')}" th:errors="*{title}"
-                       class="alert alert-danger"></label>
-                <input type="text" th:field="*{id}" placeholder="Title"
+<!--                <label th:if="${#fields.hasErrors('id')}" th:errors="*{title}"-->
+<!--                       class="alert alert-danger"></label>-->
+                <input type="hidden" th:field="*{id}" placeholder="Title"
                        class="form-control input-lg"/>
             </div>
 
@@ -37,13 +37,62 @@
                 </textarea>
                 <script>
                     ClassicEditor
-                            .create( document.querySelector( '#editor' ) )
-                            .then( editor => {
-                                    console.log( editor );
-                            } )
-                            .catch( error => {
-                                    console.error( error );
-                            } );
+			.create( document.querySelector( '#editor' ), {
+
+				toolbar: {
+					items: [
+						'heading',
+						'|',
+						'bold',
+						'italic',
+						'link',
+						'bulletedList',
+						'numberedList',
+						'|',
+						'indent',
+						'outdent',
+						'|',
+						'imageUpload',
+						'blockQuote',
+						'insertTable',
+						'mediaEmbed',
+						'undo',
+						'redo',
+						'codeBlock',
+						'fontColor',
+						'fontSize',
+						'fontFamily',
+						'CKFinder'
+					]
+				},
+				language: 'en',
+				image: {
+					toolbar: [
+						'imageTextAlternative',
+						'imageStyle:full',
+						'imageStyle:side'
+					]
+				},
+				table: {
+					contentToolbar: [
+						'tableColumn',
+						'tableRow',
+						'mergeTableCells'
+					]
+				},
+				licenseKey: '',
+
+			} )
+			.then( editor => {
+				window.editor = editor;
+
+
+
+
+			} )
+			.catch( error => {
+				console.error( error );
+			} );
             </script>
             </div>
 
@@ -62,7 +111,7 @@
     </div>
 </div>
 </div>
-<div th:replace="/fragments/footer :: footer"/>
+<div th:replace="fragments/footer :: footer"/>
 
 </body>
 </html>

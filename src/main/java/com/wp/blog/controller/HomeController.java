@@ -23,7 +23,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String siteRoot(Map<String, Object> model) {
-        return "redirect:/home";
+        return "redirect:home";
     }
 
     @GetMapping("/home")

@@ -35,7 +35,7 @@ public class UtilsController {
         }
         model.put("postsAsInsert", sb.toString());
         System.out.println(sb.toString());
-        return "/postsAsInsert";
+        return "postsAsInsert";
     }
 
 
