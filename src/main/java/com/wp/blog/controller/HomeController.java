@@ -22,13 +22,13 @@ public class HomeController {
     private PostRepository postRepo;
 
     @GetMapping("/")
-    public String siteRoot(Map<String, Object> model) {
+    public String siteRoot(final Map<String, Object> model) {
         return "redirect:home";
     }
 
     @GetMapping("/home")
-    public String home(Map<String, Object> model) {
-    	List<Post> posts = postRepo.findAll();
+    public String home(final Map<String, Object> model) {
+        final List<Post> posts = postRepo.findAll();
         model.put("posts", posts);
         return "home";
     }
