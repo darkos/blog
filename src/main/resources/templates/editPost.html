@@ -35,65 +35,59 @@
                        class="alert alert-danger"></label>
                 <textarea name="content" id="editor" th:field="*{body}" placeholder="This is some sample content." class="form-control input-lg">
                 </textarea>
-                <script>
-                    ClassicEditor
-			.create( document.querySelector( '#editor' ), {
-
-				toolbar: {
-					items: [
-						'heading',
-						'|',
-						'bold',
-						'italic',
-						'link',
-						'bulletedList',
-						'numberedList',
-						'|',
-						'indent',
-						'outdent',
-						'|',
-						'imageUpload',
-						'blockQuote',
-						'insertTable',
-						'mediaEmbed',
-						'undo',
-						'redo',
-						'codeBlock',
-						'fontColor',
-						'fontSize',
-						'fontFamily',
-						'CKFinder'
-					]
-				},
-				language: 'en',
-				image: {
-					toolbar: [
-						'imageTextAlternative',
-						'imageStyle:full',
-						'imageStyle:side'
-					]
-				},
-				table: {
-					contentToolbar: [
-						'tableColumn',
-						'tableRow',
-						'mergeTableCells'
-					]
-				},
-				licenseKey: '',
-
-			} )
-			.then( editor => {
-				window.editor = editor;
-
-
-
-
-			} )
-			.catch( error => {
-				console.error( error );
-			} );
-            </script>
+                <script>ClassicEditor
+					.create( document.querySelector( '.editor' ), {
+						
+						toolbar: {
+							items: [
+								'heading',
+								'|',
+								'bold',
+								'italic',
+								'link',
+								'bulletedList',
+								'numberedList',
+								'|',
+								'indent',
+								'outdent',
+								'|',
+								'imageUpload',
+								'blockQuote',
+								'insertTable',
+								'mediaEmbed',
+								'undo',
+								'redo'
+							]
+						},
+						language: 'en',
+						image: {
+							toolbar: [
+								'imageTextAlternative',
+								'imageStyle:full',
+								'imageStyle:side'
+							]
+						},
+						table: {
+							contentToolbar: [
+								'tableColumn',
+								'tableRow',
+								'mergeTableCells'
+							]
+						},
+						licenseKey: '',
+						
+					} )
+					.then( editor => {
+						window.editor = editor;
+				
+						
+						
+						
+					} )
+					.catch( error => {
+						console.error( error );
+					} );
+			</script>
             </div>
 
             <div class="form-group">
