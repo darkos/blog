@@ -27,7 +27,7 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.webjars/jquery
 	implementation group: 'org.webjars', name: 'jquery', version: '2.1.4'
 
-
+	compile 'com.cksource:ckfinder3:3.5.1'
 }
 
 test {
